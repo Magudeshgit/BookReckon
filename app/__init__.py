@@ -2,13 +2,15 @@ import time
 import pickle
 from pathlib import Path
 import pandas as pd
+import os
 
-BASE_DIR = str(Path(__file__).resolve().parent.parent)
-
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATASET_PATH = os.path.join(BASE_DIR, 'initial_dataset1.csv')
+MODEL_PATH = os.path.join(BASE_DIR, 'br1.pkl')
 class modelpredictor:
     
-    datasetfile = pd.read_csv(BASE_DIR + '\\initial_dataset1.csv')
-    mf = open(BASE_DIR + '\\br1.pkl', 'rb')
+    datasetfile = pd.read_csv(DATASET_PATH)
+    mf = open(MODEL_PATH, 'rb')
     actual_data = []
     def __init__(self):
         start_time = time.time()
