@@ -13,5 +13,6 @@ class modelPredict(APIView):
     
     def post(self, request):
         value = request.data.get('value')
-        resp = model.test(value)
+        print(value)
+        resp = model.test(value=value)
         return Response(resp)

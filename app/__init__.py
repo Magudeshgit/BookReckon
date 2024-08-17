@@ -39,5 +39,6 @@ class modelpredictor:
                 flag +=1
             if flag == 10:
                 break
-        #print(l2)
-        return l2
+        sl= sorted(l2, key = lambda x: x[4], reverse = True)
+        dic = {'input':{"prompt":value, "predicted_genre":resp[0]}, 'suggestions': sl}
+        return dic
