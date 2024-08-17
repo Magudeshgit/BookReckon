@@ -1,6 +1,6 @@
 from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+wsgi_app = 'reckon.wsgi:application'
 workers = 2
 reload = True
 errorlog = str(BASE_DIR / 'logs/error.log')
