@@ -7,15 +7,17 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATASET_PATH = os.path.join(BASE_DIR, 'initial_dataset1.csv')
 MODEL_PATH = os.path.join(BASE_DIR, 'br1.pkl')
+mf = open(MODEL_PATH, 'rb')
+
+
 class modelpredictor:
     
     datasetfile = pd.read_csv(DATASET_PATH)
-    mf = open(MODEL_PATH, 'rb')
     actual_data = []
     def __init__(self):
         start_time = time.time()
         print('Loading Model')
-        self.model = pickle.load(self.mf)
+        self.model = pickle.load(mf)
         print('Model Loaded in', time.time() - start_time)
         start_time = time.time()
         print('Processing Dataset...')
